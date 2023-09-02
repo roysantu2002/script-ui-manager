@@ -19,7 +19,7 @@ def check_space_and_publish():
 
 
 def check_space():
-    hostnames = ["192.168.1.23"]  # Add more hosts as needed
+    hostnames = ["192.168.1.23", "192.168.1.100"]  # Add more hosts as needed
 
     for hostname in hostnames:
         print(hostname)
