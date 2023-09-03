@@ -19,6 +19,7 @@ class RedisMessenger:
         pubsub.subscribe(self.room_name)
 
         for message in pubsub.listen():
+            print(message)
             if message['type'] == 'message':
                 print(
                     f"Received message in room {self.room_name}: {message['data']}")

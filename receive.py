@@ -2,7 +2,7 @@ from RedisMessenger import RedisMessenger
 
 
 def main():
-    room_name = "script_run"  # Specify the room name you want to listen to
+    room_name = "run_script"  # Specify the room name you want to listen to
     messenger = RedisMessenger(room_name)
 
     print(f"Listening for messages in room: {room_name}")
