@@ -3,3 +3,5 @@
 
 # Ignore venv directory
 env/
+
+web-soccket/node_modules
