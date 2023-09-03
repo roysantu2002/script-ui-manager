@@ -1,0 +1,10 @@
+Disk space information for 192.168.1.23:
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root        14G  5.2G  8.1G  40% /
+devtmpfs        309M     0  309M   0% /dev
+tmpfs           438M     0  438M   0% /dev/shm
+tmpfs           175M  988K  174M   1% /run
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+/dev/mmcblk0p1  255M   52M  204M  21% /boot
+tmpfs            88M   16K   88M   1% /run/user/1000
+tmpfs            88M   16K   88M   1% /run/user/1001

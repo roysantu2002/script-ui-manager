@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Test</title>
+</head>
+<body>
+    <script>
+        const socket = new WebSocket('ws://192.168.1.103:8000/ws/socket-server/');
+
+        socket.onopen = (event) => {
+            console.log('WebSocket connection opened:', event);
+            // Send a message when the connection is open
+            socket.send('Hello, WebSocket Server!');
+        };
+
+        socket.onmessage = (event) => {
+            console.log('Message received:', event.data);
+            // Handle incoming messages here
+        };
+
+        socket.onclose = (event) => {
+            console.log('WebSocket connection closed:', event);
+        };
+
+        socket.onerror = (error) => {
+            console.error('WebSocket error:', error);
+        };
+    </script>
+</body>
+</html>
