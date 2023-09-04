@@ -6,9 +6,6 @@ import os
 # import requests
 
 
-import os
-import json
-
 class DataSenderToDjangoAPI:
     def __init__(self, root_folder, api_endpoint):
         self.root_folder = root_folder
@@ -37,7 +34,8 @@ class DataSenderToDjangoAPI:
                     parsed_data[field] = row[i]
 
             # Convert the parsed data to a JSON object
-            json_data = json.dumps(parsed_data, indent=4)  # You can customize the formatting
+            # You can customize the formatting
+            json_data = json.dumps(parsed_data, indent=4)
 
             return json_data
 
@@ -54,14 +52,28 @@ class DataSenderToDjangoAPI:
                 continue
 
             # Find all .txt files in the IP-specific folder
-            txt_files = [filename for filename in os.listdir(ip_folder) if filename.endswith(".txt")]
+            txt_files = [filename for filename in os.listdir(
+                ip_folder) if filename.endswith(".txt")]
+            # Sort the list of .txt files by modification time in descending order (latest first)
+            txt_files.sort(key=lambda x: os.path.getmtime(
+                os.path.join(ip_folder, x)), reverse=True)
 
-            for txt_file in txt_files:
-                filepath = os.path.join(ip_folder, txt_file)
+            # Get the latest .txt file
+            latest_txt_file = txt_files[0]
+            filepath = os.path.join(ip_folder, latest_txt_file)
+            json_data = self.read_text_file_and_convert_to_json(filepath)
 
-                json_data = self.read_text_file_and_convert_to_json(filepath)
+            if json_data:
+                # Now you have a JSON object with fields and values from the .txt file for the IP
+                print(f"JSON data for IP {ip} from {latest_txt_file}:")
+                print(json_data)
 
-                if json_data:
-                    # Now you have a JSON object with fields and values from the .txt file for the IP
-                    print(f"JSON data for IP {ip} from {txt_file}:")
-                    print(json_data)
+            # for txt_file in txt_files:
+            #     filepath = os.path.join(ip_folder, txt_file)
+
+            #     json_data = self.read_text_file_and_convert_to_json(filepath)
+
+            #     if json_data:
+            #         # Now you have a JSON object with fields and values from the .txt file for the IP
+            #         print(f"JSON data for IP {ip} from {txt_file}:")
+            #         print(json_data)

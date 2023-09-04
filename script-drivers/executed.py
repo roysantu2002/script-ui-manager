@@ -3,7 +3,8 @@ import redis
 from DataSenderToDjangoAPI import DataSenderToDjangoAPI
 
 # Connect to the Redis server
-redis_client = redis.Redis(host='localhost', port=6379, db=0)
+redis_client = redis.Redis(
+    host='192.168.1.103', port=6379, db=0, socket_timeout=60)
 
 # Subscribe to the same channel
 pubsub = redis_client.pubsub()
@@ -18,7 +19,7 @@ for message in pubsub.listen():
         # Check if the received message is "executed"
         if message_text.lower() == 'executed':
             # Usage example:
-            root_folder = "/Users/santuroy/script-manager-network/02_09_2023"
+            root_folder = "/Users/santuroy/script-manager-network/script-drivers/04_09_2023"
             # data_sender = DataSenderToDjangoAPI(root_folder, "api_endpoint")
             # data_sender.iterate_folders_and_send_to_api()
             print(f"Received 'executed' message.")

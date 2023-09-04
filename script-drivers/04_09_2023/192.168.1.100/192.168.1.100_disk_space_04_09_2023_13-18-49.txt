@@ -1,0 +1,10 @@
+Disk space information for 192.168.1.100:
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root        12G  7.6G  3.7G  68% /
+devtmpfs        430M     0  430M   0% /dev
+tmpfs           462M   12K  462M   1% /dev/shm
+tmpfs           462M   47M  415M  11% /run
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+tmpfs           462M     0  462M   0% /sys/fs/cgroup
+/dev/mmcblk0p6  253M   49M  204M  20% /boot
+tmpfs            93M  4.0K   93M   1% /run/user/1000
