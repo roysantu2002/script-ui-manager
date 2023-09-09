@@ -2,18 +2,27 @@
 
 import json
 import os
+from file_util import FileUtils
 
 # import requests
+# Create an instance of FileUtils
+file_util_common = FileUtils()
+# Access the folder path
+today_folder_path = file_util_common.today_folder_path
+API_URL = "http://localhost:8000/api/scripts/network-devices/list/"
+
+print(today_folder_path)
+print(API_URL)
 
 
 class DataSenderToDjangoAPI:
-    def __init__(self, root_folder, api_endpoint):
-        self.root_folder = root_folder
-        self.api_endpoint = api_endpoint
+    def __init__(self):
+        self.root_folder = today_folder_path
+        self.api_endpoint = API_URL
 
-    def create_folder_if_not_exists(self, folder_path):
-        if not os.path.exists(folder_path):
-            os.makedirs(folder_path)
+    # def create_folder_if_not_exists(self, folder_path):
+    #     if not os.path.exists(folder_path):
+    #         os.makedirs(folder_path)
 
     def read_text_file_and_convert_to_json(self, filepath):
         try:
@@ -44,6 +53,7 @@ class DataSenderToDjangoAPI:
             return None
 
     def iterate_folders_and_send_to_api(self, ips):
+        print(ips)
         for ip in ips:
             ip_folder = os.path.join(self.root_folder, ip)
 

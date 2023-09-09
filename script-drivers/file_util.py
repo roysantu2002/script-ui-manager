@@ -4,7 +4,7 @@ from datetime import datetime
 
 class FileUtils:
     def __init__(self):
-        pass
+        # pass
 
         # Generate a timestamp with seconds
         timestamp = datetime.now().strftime("%d_%m_%Y_%H-%M-%S")
@@ -24,6 +24,10 @@ class FileUtils:
 
         # # Use the FileUtils method to create the folder if it doesn't exist
         # self.create_folder_if_not_exists(today_folder_path)
+    
+   
+    def get_today_folder_path(self):
+        return self.today_folder_path
 
     @staticmethod
     def create_folder_if_not_exists(folder_path):

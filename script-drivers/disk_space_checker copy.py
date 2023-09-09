@@ -21,19 +21,10 @@ def create_folder_if_not_exists(folder_path):
 
 class DiskSpaceChecker:
     def __init__(self, hostname):
-
-        # Check if a hostname is provided as a command-line argument
-        # if len(sys.argv) < 2:
-        #     print("Usage: python disk_space_checker.py <hostname>")
-        #     sys.exit(1)
-
-        # self.hostname = sys.argv[1]
-        # print(f"Initialized DiskSpaceChecker for {self.hostname}")
-
         self.hostname = hostname
         self.username = os.getenv("SSH_USERNAME")
         self.password = os.getenv("SSH_PASSWORD")
-     
+        print("triggered ")
 
     # def log_authentication_attempt(self, success, ip_address):
     #     log_message = f"{'Successful' if success else 'Failed'} authentication for IP: {ip_address}, Host: {self.hostname}"

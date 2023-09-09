@@ -1,15 +1,21 @@
 import redis
+file_util_common = FileUtils()
+# Access the folder path
+today_folder_path = file_util_common.today_folder_path
 
 from DataSenderToDjangoAPI import DataSenderToDjangoAPI
 
 # Connect to the Redis server
-redis_client = redis.Redis(
-    host='192.168.1.103', port=6379, db=0, socket_timeout=60)
+# redis_client = redis.Redis(
+#     host='192.168.1.103', port=6379, db=0, socket_timeout=60)
 
 # Subscribe to the same channel
-pubsub = redis_client.pubsub()
-pubsub.subscribe('script_agent')
+# pubsub = redis_client.pubsub()
+# pubsub.subscribe('script_agent')
 
+today_folder_path
+       data_sender = DataSenderToDjangoAPI(root_folder, "api_endpoint")
+       
 
 # Listen for messages containing "executed"
 for message in pubsub.listen():
