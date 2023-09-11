@@ -1,0 +1,9 @@
+{
+    "generated_text": {
+        "text": "\");\n        greetings.add(\"hola\");\n        greetings.add(\"bonjour\");\n        greetings.add(\"ni hao\");\n\n        System.out.println(greetings);\n    }\n}",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+    },
+    "text": "\");\n        greetings.add(\"hola\");\n        greetings.add(\"bonjour\");\n        greetings.add(\"ni hao\");\n\n        System.out.println(greetings);\n    }\n}"
+}

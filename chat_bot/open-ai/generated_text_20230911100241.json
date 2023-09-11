@@ -1,0 +1,10 @@
+{
+    "generated_text": [
+        {
+            "text": "`\n\nHello, what can I do for you?",
+            "index": 0,
+            "logprobs": null,
+            "finish_reason": "stop"
+        }
+    ]
+}
